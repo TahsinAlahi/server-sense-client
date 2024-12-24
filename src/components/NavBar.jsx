@@ -12,20 +12,20 @@ function NavBar() {
   }
 
   function activeClass({ isActive }) {
-    return `block md:py-1 py-2 px-3  rounded text-inherit font-semibold  ${
+    return `block md:py-1 py-2 px-3 text-inherit font-semibold border-b-2 hover:border-b-2 hover:border-red-500 ${
       isActive ? "" : "md:bg-transparent"
     }`;
   }
 
   return (
-    <nav className="bg-nav/70 border-gray-200 w-full font-poppins">
+    <nav className="bg-nav/70 border-gray-200 w-full font-lora">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:px-7 ">
         <Link
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <img src={logoImg} className="h-10 aspect-square" alt="EarthBound" />
-          <span className="self-center text-3xl font-semibold whitespace-nowrap font-satisfy">
+          <span className="self-center text-3xl font-semibold whitespace-nowrap font-montserrat">
             Serve Sense
           </span>
         </Link>
