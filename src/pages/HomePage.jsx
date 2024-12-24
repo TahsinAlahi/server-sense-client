@@ -1,3 +1,4 @@
+import AboutUs from "../components/AboutUs"
 import FeaturedServices from "../components/FeaturedServices"
 import Header from "../components/Header"
 import Partners from "../components/Partners"
@@ -10,7 +11,9 @@ function HomePage() {
       <Header />
       <FeaturedServices />
       <Partners />
-      <Subscribe/>
+      <AboutUs/>
+      <Subscribe />
+      
    </>
   )
 }

@@ -28,9 +28,9 @@ function Partners() {
   return (
     <section className="bg-gray-100 py-8 px-4">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-black">Meet Our Partners</h1>
+        <h1 className="text-4xl font-bold text-black font-lora">Meet Our Partners</h1>
       </div>
-      <div className="flex flex-wrap justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-8 font-poppins">
         {teamMembers.map((member) => (
           <div key={member.name} className="w-full sm:w-1/2 lg:w-1/3">
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -41,7 +41,7 @@ function Partners() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-semibold text-black">{member.name}</h3>
+              <h3 className="text-2xl font-semibold text-black font-lora">{member.name}</h3>
               <p className="text-sm text-gray-600 uppercase tracking-wide mb-4">
                 {member.role}
               </p>
