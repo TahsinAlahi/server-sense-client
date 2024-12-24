@@ -28,8 +28,8 @@ function Header() {
         >
           <HeaderSlide
             image={hero1}
-            title="Discover the Magic of Cinema"
-            description="Experience unforgettable stories at Orchid Movie."
+            title="Find the Best Services at Your Fingertips"
+       description="Browse trusted reviews and make informed decisions."
           />
         </SwiperSlide>
         <SwiperSlide
@@ -38,18 +38,18 @@ function Header() {
         >
           <HeaderSlide
             image={hero2}
-            title="Your Gateway to Entertainment"
-            description="Dive into a world of movies, curated just for you"
+            title="Your Guide to Exceptional Services"
+            description="Discover top-rated services and share your experience."
           />
         </SwiperSlide>
         <SwiperSlide
           className="h-[calc(100vh-72px)] w-full"
           style={{ margin: 0 }}
         >
-          <HeaderSlide
-            image={hero3}
-            title="Celebrate the Art of Storytelling"
-            description="Explore movies that inspire, entertain, and captivate"
+      <HeaderSlide
+       image={hero3}
+       title="Building Trust Through Genuine Reviews"
+       description="Read and write reviews to help others choose the right services."
           />
         </SwiperSlide>
       </Swiper>
