@@ -185,7 +185,7 @@ function AuthProvider({ children }) {
          await axiosPublic.post('/jwt/login', { email: currUser.email });
        } else {
          setUser(null);
-         await axiosPublic.post('/jwt/logout');
+        //  await axiosPublic.post('/jwt/logout');
        }
      } catch (error) {
        console.error("Error handling authentication state:", error);
