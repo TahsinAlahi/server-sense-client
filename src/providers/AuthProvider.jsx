@@ -12,14 +12,14 @@ import {
 import { auth } from "../firebase.config";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
-import useAxiosPublic from '../hooks/useAxiosPublic'
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const authContext = createContext(null);
 
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
- const [isAuthLoading, setIsAuthLoading] = useState(true);
- const axiosPublic = useAxiosPublic()
+  const [isAuthLoading, setIsAuthLoading] = useState(true);
+  const axiosPublic = useAxiosPublic();
 
   async function registerWithEmail(username, email, password, imageUrl) {
     try {
@@ -153,9 +153,9 @@ function AuthProvider({ children }) {
   }
 
   async function logout() {
-   try {
-    await signOut(auth);
-    await axiosPublic.post('/jwt/logout');
+    try {
+      await signOut(auth);
+      await axiosPublic.post("/jwt/logout");
       setUser(null);
       toast.success("User logged out successfully");
       return { status: "success", message: "User logged out successfully" };
@@ -177,25 +177,28 @@ function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-   setIsAuthLoading(true);
-   const unsubscribe = onAuthStateChanged(auth, async (currUser) => {
-     try {
-       if (currUser) {
-         setUser(currUser);
-         await axiosPublic.post('/jwt/login', { email: currUser.email });
-       } else {
-         setUser(null);
-        //  await axiosPublic.post('/jwt/logout');
-       }
-     } catch (error) {
-       console.error("Error handling authentication state:", error);
-     } finally {
-       setIsAuthLoading(false); 
-     }
-   });
+    setIsAuthLoading(true);
+    const unsubscribe = onAuthStateChanged(auth, async (currUser) => {
+      try {
+        if (currUser) {
+          setUser(currUser);
+          const res = await axiosPublic.post("/jwt/login", {
+            email: currUser.email,
+          });
+          console.log(res);
+        } else {
+          setUser(null);
+          await axiosPublic.post("/jwt/logout");
+        }
+      } catch (error) {
+        console.error("Error handling authentication state:", error);
+      } finally {
+        setIsAuthLoading(false);
+      }
+    });
 
-   return () => unsubscribe();
- }, [axiosPublic]);
+    return () => unsubscribe();
+  }, []);
 
   if (isAuthLoading) return <Loader />;
 
