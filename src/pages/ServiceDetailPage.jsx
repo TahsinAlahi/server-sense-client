@@ -5,6 +5,7 @@ import { Rating } from "react-simple-star-rating";
 import { useForm } from "react-hook-form";
 import Review from "../components/Review";
 import { useAuth } from "../providers/AuthProvider";
+import Loader from "../components/Loader";
 
 function ServiceDetailPage() {
   const axiosSecure = useAxiosSecure();
@@ -58,6 +59,8 @@ function ServiceDetailPage() {
     setAllReviews((prev) => [...prev, sendingData]);
     console.log("done");
   }
+
+  if (isLoading) return <Loader />;
 
   return (
     <main className="max-w-screen-xl  mx-auto min-h-[calc(100vh-72px)] px-5 py-10">
