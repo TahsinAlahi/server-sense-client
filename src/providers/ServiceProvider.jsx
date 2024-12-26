@@ -18,7 +18,6 @@ function ServiceProvider({ children }) {
       try {
         const res = await axiosPublic.get("/services/all-services");
         setServices(res.data);
-        console.log(res.data);
       } catch (error) {
         console.error("Error fetching services:", error);
         toast.error("Failed to load services. Please try again later.");
