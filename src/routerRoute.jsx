@@ -6,6 +6,7 @@ import RegisterPage from "./pages/RegisterPage";
 import AllServicesPage from "./pages/AllServicesPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import MyReviewsPage from "./pages/MyReviewsPage";
+import AddServices from "./pages/AddServices";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/my-reviews",
         element: <MyReviewsPage />,
+      },
+      {
+        path: "/add-service",
+        element: <AddServices />,
       },
       {
         path: "/register",

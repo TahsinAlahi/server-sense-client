@@ -30,7 +30,7 @@ function ServiceProvider({ children }) {
   }, []);
 
   if (isServiceLoading) return <Loader />;
-  const value = { services };
+  const value = { services, setServices };
 
   return (
     <serviceContext.Provider value={value}>{children}</serviceContext.Provider>
