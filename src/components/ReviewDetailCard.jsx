@@ -2,7 +2,7 @@ import { Rating } from "react-simple-star-rating";
 import { MdDelete } from "react-icons/md";
 import { IoPencil } from "react-icons/io5";
 
-function ReviewDetailCard({ review, onDelete }) {
+function ReviewDetailCard({ review, onDelete, onEdit }) {
   return (
     <div className="w-full flex flex-col gap-3 border p-1">
       <div className="p-2">
@@ -24,7 +24,10 @@ function ReviewDetailCard({ review, onDelete }) {
           onClick={onDelete}
           className="bg-red-500 text-white rounded text-2xl p-1 cursor-pointer"
         />
-        <IoPencil className="bg-yellow-500 text-black rounded text-2xl p-1 cursor-pointer" />
+        <IoPencil
+          className="bg-yellow-500 text-black rounded text-2xl p-1 cursor-pointer"
+          onClick={onEdit}
+        />
       </div>
     </div>
   );
