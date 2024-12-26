@@ -3,7 +3,7 @@ import AppLayout from "./layouts/AppLayout";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import AllServices from "./pages/AllServices";
+import AllServicesPage from "./pages/AllServicesPage";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-services",
-        element: <AllServices />,
+        element: <AllServicesPage />,
       },
     ],
   },

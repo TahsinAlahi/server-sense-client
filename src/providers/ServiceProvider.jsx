@@ -12,26 +12,26 @@ function ServiceProvider({ children }) {
   const axiosPublic = useAxiosPublic();
   const [isServiceLoading, setIsServiceLoading] = useState(false);
 
-  useEffect(() => {
-    async function getAllServices() {
-      setIsServiceLoading(true);
-      try {
-        const res = await axiosPrivate.get("/services/all-services");
-        setServices(res.data);
-      } catch (error) {
-        console.error("Error fetching services:", error);
-        toast.error("Failed to load services. Please try again later.");
-      } finally {
-        setIsServiceLoading(false);
-      }
-    }
+  // useEffect(() => {
+  //   async function getAllServices() {
+  //     setIsServiceLoading(true);
+  //     try {
+  //       const res = await axiosPublic.get("/services/all-services");
+  //       setServices(res.data);
+  //       console.log(res.data);
+  //     } catch (error) {
+  //       console.error("Error fetching services:", error);
+  //       toast.error("Failed to load services. Please try again later.");
+  //     } finally {
+  //       setIsServiceLoading(false);
+  //     }
+  //   }
 
-    getAllServices();
-  }, []);
-
-  const value = { services };
+  //   getAllServices();
+  // }, []);
 
   if (isServiceLoading) return <Loader />;
+  const value = { services };
 
   return (
     <serviceContext.Provider value={value}>{children}</serviceContext.Provider>
