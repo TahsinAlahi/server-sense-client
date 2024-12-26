@@ -3,6 +3,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import ConfirmationModal from "../components/ConfirmationModal";
 import Loader from "../components/Loader";
 import { useAuth } from "../providers/AuthProvider";
+import UpdateServiceModal from "../components/UpdateServiceModal";
 
 function MyServicesPage() {
   const { user } = useAuth();
@@ -73,7 +74,7 @@ function MyServicesPage() {
 
   const handleUpdate = async (updatedServiceData) => {
     try {
-      await axiosSecure.put(
+      await axiosSecure.patch(
         `/services/service/${selectedService._id}`,
         updatedServiceData
       );
@@ -165,14 +166,14 @@ function MyServicesPage() {
         onCancel={() => setIsDeleteModalOpen(false)}
       />
 
-      {/* {isUpdateModalOpen && (
+      {isUpdateModalOpen && (
         <UpdateServiceModal
           isOpen={isUpdateModalOpen}
           service={selectedService}
           onSave={handleUpdate}
           onClose={() => setIsUpdateModalOpen(false)}
         />
-      )} */}
+      )}
     </main>
   );
 }
