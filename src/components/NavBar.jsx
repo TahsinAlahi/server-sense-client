@@ -72,18 +72,27 @@ function NavBar() {
                 Services
               </NavLink>
             </li>
-            {
-              user && <li className="lg:block">
-              <NavLink to="/add-service" className={activeClass}>
-                Add Service
-              </NavLink>
-            </li>
-            }
-            {user && <li className="lg:block">
-              <NavLink to="/my-reviews" className={activeClass}>
-                My Reviews
-              </NavLink>
-            </li>}
+            {user && (
+              <li className="lg:block">
+                <NavLink to="/add-service" className={activeClass}>
+                  Add Service
+                </NavLink>
+              </li>
+            )}
+            {user && (
+              <li className="lg:block">
+                <NavLink to="/my-services" className={activeClass}>
+                  My Services
+                </NavLink>
+              </li>
+            )}
+            {user && (
+              <li className="lg:block">
+                <NavLink to="/my-reviews" className={activeClass}>
+                  My Reviews
+                </NavLink>
+              </li>
+            )}
 
             <li className="lg:hidden block">
               {user ? (
