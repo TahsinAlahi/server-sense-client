@@ -8,6 +8,7 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 import MyReviewsPage from "./pages/MyReviewsPage";
 import AddServices from "./pages/AddServices";
 import MyServicesPage from "./pages/MyServicesPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,19 +25,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/service/:id",
-        element: <ServiceDetailPage />,
+        element: (
+          <ProtectedRoute>
+            <ServiceDetailPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/my-reviews",
-        element: <MyReviewsPage />,
+        element: (
+          <ProtectedRoute>
+            <MyReviewsPage />
+          </ProtectedRoute>
+        ),
       },
       {
-        path: "my-services",
-        element: <MyServicesPage />,
+        path: "/my-services",
+        element: (
+          <ProtectedRoute>
+            <MyServicesPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/add-service",
-        element: <AddServices />,
+        element: (
+          <ProtectedRoute>
+            <AddServices />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/register",
