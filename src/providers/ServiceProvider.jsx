@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import Loader from "../components/Loader";
+import { toast } from "react-toastify";
 
 const serviceContext = createContext(null);
 
@@ -16,10 +17,10 @@ function ServiceProvider({ children }) {
       setIsServiceLoading(true);
       try {
         const res = await axiosPrivate.get("/services/all-services");
-        console.log(res.data);
         setServices(res.data);
       } catch (error) {
         console.error("Error fetching services:", error);
+        toast.error("Failed to load services. Please try again later.");
       } finally {
         setIsServiceLoading(false);
       }

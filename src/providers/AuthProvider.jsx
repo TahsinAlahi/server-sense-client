@@ -182,10 +182,9 @@ function AuthProvider({ children }) {
       try {
         if (currUser) {
           setUser(currUser);
-          const res = await axiosPublic.post("/jwt/login", {
+          await axiosPublic.post("/jwt/login", {
             email: currUser.email,
           });
-          console.log(res);
         } else {
           setUser(null);
           await axiosPublic.post("/jwt/logout");
