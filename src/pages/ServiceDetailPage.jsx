@@ -4,12 +4,16 @@ import { useParams } from "react-router";
 import { Rating } from "react-simple-star-rating";
 import { useForm } from "react-hook-form";
 import Review from "../components/Review";
+import { useAuth } from "../providers/AuthProvider";
 
 function ServiceDetailPage() {
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
+  const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [service, setService] = useState(null);
+  const [allReviews, setAllReviews] = useState(null);
+
   const {
     register,
     handleSubmit,
@@ -22,7 +26,7 @@ function ServiceDetailPage() {
       try {
         const res = await axiosSecure.get(`/services/service/${id}`);
         setService(res.data);
-        console.log(res.data);
+        setAllReviews([...res.data.reviews]);
       } catch (error) {
         console.error("Error fetching services:", error);
       } finally {
@@ -35,17 +39,25 @@ function ServiceDetailPage() {
 
   let avgRating = 0;
 
-  if (Array.isArray(service?.reviews) && service?.reviews?.length > 0) {
+  if (Array.isArray(allReviews) && allReviews?.length > 0) {
     avgRating =
-      service.reviews.reduce((sum, curr) => sum + curr.rating, 0) /
-      service.reviews.length;
-    console.log(avgRating);
+      allReviews.reduce((sum, curr) => sum + curr.rating, 0) /
+      allReviews.length;
   }
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Handle form submission
-  };
+  async function onSubmit(data) {
+    const sendingData = {
+      review: data.review,
+      rating: Number(data.rating),
+      serviceId: id,
+      name: user.displayName,
+      image: user.photoURL,
+    };
+    console.log(sendingData);
+    await axiosSecure.post("/reviews/new-review", sendingData);
+    setAllReviews((prev) => [...prev, sendingData]);
+    console.log("done");
+  }
 
   return (
     <main className="max-w-screen-xl  mx-auto min-h-[calc(100vh-72px)] px-5 py-10">
@@ -161,8 +173,8 @@ function ServiceDetailPage() {
                 Reviews
               </h1>
               <div className="flex w-full flex-col gap-3">
-                {service?.reviews.map((review) => (
-                  <Review key={review._id} review={review} />
+                {allReviews?.map((review, index) => (
+                  <Review key={index} review={review} />
                 ))}
               </div>
             </div>
