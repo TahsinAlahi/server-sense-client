@@ -1,9 +1,15 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function ServiceCard({ data }) {
   return (
-    <div className="bg-[hsl(30,38%,92%)] w-full h-full mx-auto flex items-center justify-center font-poppins">
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full  rounded-lg ">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="bg-[hsl(30,38%,92%)] w-full h-full mx-auto flex items-center justify-center font-poppins"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full  rounded-lg ">
         {/* Left Side */}
         <div className="w-full h-[350px]">
           <img
@@ -37,7 +43,7 @@ function ServiceCard({ data }) {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
