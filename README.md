@@ -1,4 +1,4 @@
-# [Serve Sense](https://servce-sense.netlify.app/)
+# [Serve Sense](https://serve-sense.netlify.app/)
 
 This repository contains the client-side code for a Service Review Application.
 

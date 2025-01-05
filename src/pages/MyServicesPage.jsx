@@ -104,7 +104,9 @@ function MyServicesPage() {
 
   return (
     <main className="min-h-[calc(100svh-72px)] w-full max-w-screen-xl mx-auto py-5">
-      <h1 className="text-3xl font-semibold text-center mb-6">My Services</h1>
+      <h1 className="text-3xl font-semibold text-center mb-6 border-b-4 pb-1 border-black w-fit mx-auto ">
+        My Services
+      </h1>
 
       <div className="mb-4 flex justify-center">
         <input

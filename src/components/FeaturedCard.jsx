@@ -20,14 +20,15 @@ function FeaturedCard({ data }) {
           </h1>
           <div className="w-1/6 h-1 bg-black mb-2" />
           <div className=" mt-3">
-            <span className="font-semibold text-lg">Description:</span> <span>{data?.description}</span>
+            <span className="font-semibold text-lg">Description:</span>{" "}
+            <span>{data?.description}</span>
           </div>
         </div>
 
         {/* Button */}
         <div className="px-5 py-2 block mb-3">
           <Link
-            to={`/adventure/${data?._id}`}
+            to={`/service/${data?._id}`}
             className="inline-block px-4 py-2 text-sm font-bold text-black bg-gray-100 rounded-xl hover:bg-gray-300 transition-all duration-200 ease-linear"
           >
             See Details

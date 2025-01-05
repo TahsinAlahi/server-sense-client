@@ -82,7 +82,7 @@ function MyReviewsPage() {
         All Reviews
       </h1>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-1 flex-col gap-3">
         {reviews?.map((review) => (
           <ReviewDetailCard
             key={review._id}
