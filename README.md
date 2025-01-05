@@ -1,47 +1,133 @@
-# [Serve Sense](https://serve-sense.netlify.app/)
+# [ServeSense Client](https://serve-sense.netlify.app/)
 
-This repository contains the client-side code for a Service Review Application.
+ServeSense is a Service Review Application System that allows users to browse, rate, and review services. This repository contains the client-side code, built with modern tools and libraries for an interactive and responsive user experience.
 
-**Project Overview:**
+---
 
-This application allows users to:
+## Table of Contents
 
-- **Browse and view services:** Explore a catalog of services with detailed descriptions, reviews, and ratings.
-- **Add, update, and delete services:** Manage their own listings of services.
-- **Leave and manage reviews:** Share their experiences with services and update or delete their existing reviews.
-- **Search and filter services:** Easily find relevant services using search and filter functionalities.
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Scripts](#scripts)
+- [Dependencies](#dependencies)
+- [Dev Dependencies](#dev-dependencies)
+- [License](#license)
 
-**Key Features:**
+---
 
-- **User Authentication:** Secure login and registration using email and password.
-- **Service Management:** Add, update, and delete services with a user-friendly interface.
-- **Review System:** Leave detailed reviews with ratings for services.
-- **Search Functionality:** Search for services based on keywords (title, category, company name).
-- **Filter Functionality:** Filter services by category.
-- **User Interface:** Clean and modern UI with responsive design.
-- **Animations:** Smooth animations using Framer Motion.
-- **CountUp:** Display dynamic counts for users, reviews, and services.
-- **JWT Authentication:** (If implemented) Secure API endpoints with JWT tokens for enhanced security.
-- **Error Handling:** (If implemented) Graceful error handling for API requests and user interactions.
-- **Pagination:** (If implemented) Paginate service listings for better user experience.
-- **Accessibility:** (If considered) Aim for accessibility by following best practices for screen reader compatibility and keyboard navigation.
+## Features
 
-**Technologies Used:**
+- **Service Browsing**: Explore a list of available services.
+- **User Authentication**: Firebase-powered authentication for login and registration.
+- **Ratings and Reviews**: Users can rate and review services.
+- **Interactive Design**: Built with Tailwind CSS and Framer Motion for smooth animations.
+- **Toast Notifications**: Real-time feedback for user actions.
+- **Responsive Design**: Optimized for all screen sizes.
 
-- **Frontend:** React, React Router, React Hook Form, Framer Motion, React CountUp, React Icons, React Simple Star Rating, React Toastify, Swiper
-- **Styling:** Tailwind CSS
-- **State Management:** (Consider using a state management library like Redux or Zustand if applicable)
-- **API Integration:** Axios (for making API requests to the server)
-- **Firebase:** (For user authentication)
+---
 
-**Installation:**
+## Getting Started
 
-1. Clone the repository: `git clone <repository_url>`
-2. Navigate to the project directory: `cd b10a11-client-side-tahsinalahi`
-3. Install dependencies: `npm install`
+### Prerequisites
 
-**Running the Development Server:**
+- **Node.js** (v14 or later)
+- **Vite** (installed globally is optional but recommended)
 
-```bash
-npm run dev
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/<your-repo>/serve-sense-client.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd serve-sense-client
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the root directory and add the following variables:
+
+```env
+VITE_API_URL=your-api-endpoint
+VITE_FIREBASE_API_KEY=your-firebase-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+VITE_FIREBASE_PROJECT_ID=your-firebase-project-id
+VITE_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+VITE_FIREBASE_APP_ID=your-firebase-app-id
 ```
+
+---
+
+## Scripts
+
+- **Start development server**:
+
+  ```bash
+  npm run dev
+  ```
+
+- **Build for production**:
+
+  ```bash
+  npm run build
+  ```
+
+- **Preview production build**:
+
+  ```bash
+  npm run preview
+  ```
+
+- **Lint the code**:
+  ```bash
+  npm run lint
+  ```
+
+---
+
+## Dependencies
+
+- **[axios](https://www.npmjs.com/package/axios)**: HTTP client for API requests.
+- **[firebase](https://www.npmjs.com/package/firebase)**: Authentication and database integration.
+- **[framer-motion](https://www.npmjs.com/package/framer-motion)**: Animations for React.
+- **[react](https://www.npmjs.com/package/react)**: JavaScript library for building user interfaces.
+- **[react-hook-form](https://www.npmjs.com/package/react-hook-form)**: Forms and validation.
+- **[react-router-dom](https://www.npmjs.com/package/react-router-dom)**: Routing library for React.
+- **[react-toastify](https://www.npmjs.com/package/react-toastify)**: Toast notifications.
+- **[swiper](https://www.npmjs.com/package/swiper)**: Modern touch slider for services.
+
+---
+
+## Dev Dependencies
+
+- **[@vitejs/plugin-react](https://www.npmjs.com/package/@vitejs/plugin-react)**: Vite plugin for React support.
+- **[tailwindcss](https://www.npmjs.com/package/tailwindcss)**: Utility-first CSS framework.
+- **[eslint](https://www.npmjs.com/package/eslint)**: Linting for JavaScript and React.
+- **[postcss](https://www.npmjs.com/package/postcss)**: Tool for transforming CSS.
+- **[vite](https://www.npmjs.com/package/vite)**: Lightning-fast development environment.
+
+---
+
+## License
+
+This project is licensed under the ISC License.
+
+---
+
+## Author
+
+- **Tahsin Alahi**
