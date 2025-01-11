@@ -6,7 +6,7 @@ function useAxiosSecure() {
   const { user, logout } = useAuth();
 
   const axiosSecure = axios.create({
-    baseURL: "https://b10a11-server-side-tahsin-alahi.vercel.app/api",
+    baseURL: `${import.meta.env.VITE_API_URL}/api`,
     withCredentials: true,
     params: { email: user?.email || "" },
   });

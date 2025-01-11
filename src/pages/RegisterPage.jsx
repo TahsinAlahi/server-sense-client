@@ -32,7 +32,7 @@ function RegisterPage() {
   }
 
   return (
-    <main className=" min-h-[calc(100svh-72px)] w-full max-w-screen-xl mx-auto flex items-center justify-center relative font-poppins py-10">
+    <main className="text-white min-h-[calc(100svh-72px)] w-full max-w-screen-xl mx-auto flex items-center justify-center relative font-poppins py-10">
       <div className="absolute top-0 right-0 bottom-0 left-0 select-none">
         <img
           src={registerPageBg}

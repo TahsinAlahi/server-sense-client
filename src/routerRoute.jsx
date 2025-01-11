@@ -1,14 +1,23 @@
 import { createBrowserRouter } from "react-router";
+import { lazy, Suspense } from "react";
 import AppLayout from "./layouts/AppLayout";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import AllServicesPage from "./pages/AllServicesPage";
-import ServiceDetailPage from "./pages/ServiceDetailPage";
-import MyReviewsPage from "./pages/MyReviewsPage";
-import AddServices from "./pages/AddServices";
-import MyServicesPage from "./pages/MyServicesPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Loader from "./components/Loader";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+const AllServicesPage = lazy(() => import("./pages/AllServicesPage"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
+const MyReviewsPage = lazy(() => import("./pages/MyReviewsPage"));
+const AddServices = lazy(() => import("./pages/AddServices"));
+const MyServicesPage = lazy(() => import("./pages/MyServicesPage"));
+
+const withSuspense = (Component) => (
+  <Suspense fallback={<Loader />}>
+    <Component />
+  </Suspense>
+);
 
 const router = createBrowserRouter([
   {
@@ -17,51 +26,39 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />,
+        element: withSuspense(HomePage),
       },
       {
         path: "/login",
-        element: <LoginPage />,
+        element: withSuspense(LoginPage),
+      },
+      {
+        path: "/register",
+        element: withSuspense(RegisterPage),
+      },
+      {
+        path: "/all-services",
+        element: withSuspense(AllServicesPage),
       },
       {
         path: "/service/:id",
         element: (
-          <ProtectedRoute>
-            <ServiceDetailPage />
-          </ProtectedRoute>
+          <ProtectedRoute>{withSuspense(ServiceDetailPage)}</ProtectedRoute>
         ),
       },
       {
         path: "/my-reviews",
-        element: (
-          <ProtectedRoute>
-            <MyReviewsPage />
-          </ProtectedRoute>
-        ),
+        element: <ProtectedRoute>{withSuspense(MyReviewsPage)}</ProtectedRoute>,
       },
       {
         path: "/my-services",
         element: (
-          <ProtectedRoute>
-            <MyServicesPage />
-          </ProtectedRoute>
+          <ProtectedRoute>{withSuspense(MyServicesPage)}</ProtectedRoute>
         ),
       },
       {
         path: "/add-service",
-        element: (
-          <ProtectedRoute>
-            <AddServices />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "/register",
-        element: <RegisterPage />,
-      },
-      {
-        path: "/all-services",
-        element: <AllServicesPage />,
+        element: <ProtectedRoute>{withSuspense(AddServices)}</ProtectedRoute>,
       },
     ],
   },

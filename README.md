@@ -1,6 +1,6 @@
 # [ServeSense Client](https://serve-sense.netlify.app/)
 
-ServeSense is a Service Review Application System that allows users to browse, rate, and review services. This repository contains the client-side code, built with modern tools and libraries for an interactive and responsive user experience.
+**ServeSense** is a Service Review Application System that allows users to browse, rate, and review services. This repository contains the client-side code, built with modern tools and libraries for an interactive and responsive user experience.
 
 ---
 
@@ -14,6 +14,7 @@ ServeSense is a Service Review Application System that allows users to browse, r
 - [Dependencies](#dependencies)
 - [Dev Dependencies](#dev-dependencies)
 - [License](#license)
+- [Author](#author)
 
 ---
 
@@ -24,7 +25,10 @@ ServeSense is a Service Review Application System that allows users to browse, r
 - **Ratings and Reviews**: Users can rate and review services.
 - **Interactive Design**: Built with Tailwind CSS and Framer Motion for smooth animations.
 - **Toast Notifications**: Real-time feedback for user actions.
-- **Responsive Design**: Optimized for all screen sizes.
+- **Responsive Design**: Optimized for all screen sizes, including:
+  - Desktop
+  - Tablet
+  - Mobile
 
 ---
 
@@ -40,7 +44,7 @@ ServeSense is a Service Review Application System that allows users to browse, r
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/<your-repo>/serve-sense-client.git
+   git clone https://github.com/TahsinAlahi/server-sense-client.git
    ```
 
 2. Navigate to the project directory:
@@ -50,9 +54,18 @@ ServeSense is a Service Review Application System that allows users to browse, r
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
+
+4. Create a `.env` file:
+
+   ```bash
+   touch .env
+   ```
+
+5. Add environment variables to the `.env` file (see the [Environment Variables](#environment-variables) section).
 
 ---
 
@@ -62,12 +75,12 @@ Create a `.env` file in the root directory and add the following variables:
 
 ```env
 VITE_API_URL=your-api-endpoint
-VITE_FIREBASE_API_KEY=your-firebase-api-key
-VITE_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
-VITE_FIREBASE_PROJECT_ID=your-firebase-project-id
-VITE_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
-VITE_FIREBASE_APP_ID=your-firebase-app-id
+VITE_API_KEY=your-firebase-api-key
+VITE_AUTH_DOMAIN=your-firebase-auth-domain
+VITE_PROJECT_ID=your-firebase-project-id
+VITE_STORAGE_BUCKET=your-firebase-storage-bucket
+VITE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+VITE_APP_ID=your-firebase-app-id
 ```
 
 ---
@@ -80,11 +93,15 @@ VITE_FIREBASE_APP_ID=your-firebase-app-id
   npm run dev
   ```
 
+  Runs the app in development mode and watches for file changes.
+
 - **Build for production**:
 
   ```bash
   npm run build
   ```
+
+  Creates an optimized production build.
 
 - **Preview production build**:
 
@@ -92,10 +109,15 @@ VITE_FIREBASE_APP_ID=your-firebase-app-id
   npm run preview
   ```
 
+  Serves the production build locally for testing.
+
 - **Lint the code**:
+
   ```bash
   npm run lint
   ```
+
+  Checks the code for linting errors and enforces coding standards.
 
 ---
 
@@ -131,3 +153,5 @@ This project is licensed under the ISC License.
 ## Author
 
 - **Tahsin Alahi**
+  - [GitHub](https://github.com/TahsinAlahi)
+  - [LinkedIn](https://www.linkedin.com/in/tahsinalahi/)

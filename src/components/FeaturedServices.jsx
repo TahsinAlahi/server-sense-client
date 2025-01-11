@@ -6,11 +6,10 @@ function FeaturedServices() {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://b10a11-server-side-tahsin-alahi.vercel.app/api/services/home-services"
-    )
+    fetch(`${import.meta.env.VITE_API_URL}/api/services/home-services`)
       .then((res) => res.json())
-      .then((data) => setServices(data));
+      .then((data) => setServices(data))
+      .catch((error) => console.log(error));
   }, []);
 
   return (
