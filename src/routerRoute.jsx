@@ -12,6 +12,7 @@ const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
 const MyReviewsPage = lazy(() => import("./pages/MyReviewsPage"));
 const AddServices = lazy(() => import("./pages/AddServices"));
 const MyServicesPage = lazy(() => import("./pages/MyServicesPage"));
+const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 const withSuspense = (Component) => (
   <Suspense fallback={<Loader />}>
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
         element: <ProtectedRoute>{withSuspense(AddServices)}</ProtectedRoute>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: withSuspense(ErrorPage),
   },
 ]);
 
