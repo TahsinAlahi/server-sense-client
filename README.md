@@ -13,6 +13,7 @@
 - [Scripts](#scripts)
 - [Dependencies](#dependencies)
 - [Dev Dependencies](#dev-dependencies)
+- [Backend Repository](#backend-repository)
 - [License](#license)
 - [Author](#author)
 
@@ -141,6 +142,12 @@ VITE_APP_ID=your-firebase-app-id
 - **[eslint](https://www.npmjs.com/package/eslint)**: Linting for JavaScript and React.
 - **[postcss](https://www.npmjs.com/package/postcss)**: Tool for transforming CSS.
 - **[vite](https://www.npmjs.com/package/vite)**: Lightning-fast development environment.
+
+---
+
+## Backend Repository
+
+The backend repository for ServeSense can be found [here](https://github.com/TahsinAlahi/server-sense-server).
 
 ---
 
