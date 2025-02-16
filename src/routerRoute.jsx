@@ -12,6 +12,7 @@ const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
 const MyReviewsPage = lazy(() => import("./pages/MyReviewsPage"));
 const AddServices = lazy(() => import("./pages/AddServices"));
 const MyServicesPage = lazy(() => import("./pages/MyServicesPage"));
+const AboutUsPage = lazy(() => import("./pages/AboutUsPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 const withSuspense = (Component) => (
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/all-services",
         element: withSuspense(AllServicesPage),
+      },
+      {
+        path: "/about-us",
+        element: withSuspense(AboutUsPage),
       },
       {
         path: "/service/:id",

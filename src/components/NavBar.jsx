@@ -72,6 +72,13 @@ function NavBar() {
                 Services
               </NavLink>
             </li>
+            {!user && (
+              <li className="lg:block">
+                <NavLink to="/about-us" className={activeClass}>
+                  About Us
+                </NavLink>
+              </li>
+            )}
             {user && (
               <li className="lg:block">
                 <NavLink to="/add-service" className={activeClass}>
